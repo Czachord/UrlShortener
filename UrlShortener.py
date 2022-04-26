@@ -43,8 +43,8 @@ def main():
     if choice("\nCzy skopiować link? Y/N"):
         LinkCopy(strona)
         print("Link został skopiowany\n")
-    print("Za 5 sekund program sam się wyłączy")
-    time.sleep(5)
+    print("Za 3 sekund program sam się wyłączy")
+    time.sleep(3)
     exit()
     
 
