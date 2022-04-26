@@ -6,12 +6,12 @@ import time
 def urlShortener(url):
     done = False
     while done == False:
-        strona = requests.get("https://vurl.com/api.php?url=" + url)
-        if not strona.text == "Invalid URL":
+        site = requests.get("https://vurl.com/api.php?url=" + url)
+        if not site.text == "Invalid URL":
             done = True
-            return strona
+            return site
         else:
-            print("Zły link, spróbuj jeszcze raz")
+            print("Wrong type of URL, try again.")
             exit()
 
 def LinkCopy(text):
@@ -32,18 +32,18 @@ def choice(text):
             done = True
             return False
         else:
-            print("\nCoś poszło spróbuj jeszcze raz")
+            print("\nSomething went wrong, please try again.")
             time.sleep(0.5)
 
 def main():
-    url = input("Podaj URL do skrócenia: ")
-    strona = urlShortener(url).text
-    print("\n" + strona)
+    url = input("Type URL to be shortened: ")
+    site = urlShortener(url).text
+    print("\n" + site)
     time.sleep(0.5)
-    if choice("\nCzy skopiować link? Y/N"):
-        LinkCopy(strona)
-        print("Link został skopiowany\n")
-    print("Za 3 sekund program sam się wyłączy")
+    if choice("\nCopy the URL to clipboard? Y/N"):
+        LinkCopy(site)
+        print("URL was copied successfully\n")
+    print("In 3 seconds the program will turn off by itself")
     time.sleep(3)
     exit()
     
