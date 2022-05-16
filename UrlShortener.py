@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QApplication
 import sys
 import time
 
-def urlShortener(url):  ## Main function to connect with url shorting site and get the shorted URL
+def urlShortener(url):  # Main function to connect with url shorting site and get the shorted URL
     done = False
     while done == False:
         site = requests.get("https://vurl.com/api.php?url=" + url)
@@ -13,13 +13,13 @@ def urlShortener(url):  ## Main function to connect with url shorting site and g
             print("Wrong type of URL, try again.")
             exit()
 
-def LinkCopy(text): ## Function to save a link to clipboard
+def LinkCopy(text): # Function to save a link to clipboard
     app = QApplication(sys.argv)
     cb = QApplication.clipboard()
     cb.clear(mode=cb.Clipboard )
     cb.setText(text, mode=cb.Clipboard)
 
-def choice(text): ## Function to query whether to copy the link due to code optimization
+def choice(text): # Function to query whether to copy the link due to code optimization
     done = False
     while done == False:
         print(text)
